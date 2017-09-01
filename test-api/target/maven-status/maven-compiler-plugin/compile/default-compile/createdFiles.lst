@@ -1,0 +1,5 @@
+com/rainxu/api/service/GxqUserService.class
+com/rainxu/api/mapper/GxqUserMapper.class
+com/rainxu/api/server/base/BaseThriftServer.class
+com/rainxu/api/main/Main.class
+com/rainxu/api/main/SpringContext.class

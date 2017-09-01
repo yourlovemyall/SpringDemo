@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="gxqUserServiceProcessor" class="com.rainxu.api.server.processor.GxqUserServiceProcessor">
+        <constructor-arg name="iface" ref="gxqUserServiceProxy" />
+    </bean>
+    <bean id="multiThriftServer" class="com.rainxu.api.server.base.MultiThriftServer">
+        <constructor-arg name="serverName" value="multiThriftServer"></constructor-arg>
+        <constructor-arg name="ip" value="10.3.5.0"></constructor-arg>
+        <constructor-arg name="port" value="50284"></constructor-arg>
+        <constructor-arg name="mMaxWorkerThreads" value="20"></constructor-arg>
+        <constructor-arg name="serverMap">
+            <map>
+                <entry key="gxqUserService" value-ref="gxqUserServiceProcessor"></entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+</beans>
